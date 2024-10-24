@@ -80,6 +80,7 @@ class Main extends PluginBase implements Listener {
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool {
         if ($command->getName() === "playerstats") {
+            
             if (count($args) === 0) {
                 $this->showPlayerStatsForm($sender, $sender->getName());
             } else {
@@ -124,9 +125,8 @@ class Main extends PluginBase implements Listener {
             $sender->sendMessage(TF::RED . "No data found for player $playerName.");
             return;
         }
-
-        $stats = $this->playerData[$playerName];
-        $form = new SimpleForm(function (CommandSender $sender, $data) {
+if ($sender instanceof Player) {
+   $form = new SimpleForm(function (CommandSender $sender, $data) {
             // Form response handling can be implemented here
         });
 
@@ -152,20 +152,29 @@ class Main extends PluginBase implements Listener {
             $form->setContent("- $activity");
         }
 
-        $sender->sendForm($form);
+        $sender->sendForm($form); 
+} else {
+    $sender->sendMessage("This command can only be used in-game.");
+}
+        $stats = $this->playerData[$playerName];
+        
     }
 
     private function showServerAnalyticsForm(CommandSender $sender): void {
         $form = new SimpleForm(function (CommandSender $sender, $data) {
             // Form response handling can be implemented here
         });
-
-        $form->setTitle("Server Analytics");
+if ($sender instanceof Player) {
+    $form->setTitle("Server Analytics");
         $form->setContent("Total Players Online: " . $this->serverData['totalPlayers']);
         $form->setContent("Total Blocks Broken: " . $this->serverData['totalBlocksBroken']);
         $form->setContent("Total Items Consumed: " . $this->serverData['totalItemsConsumed']);
 
         $sender->sendForm($form);
+} else {
+    $sender->sendMessage("This command can only be used in-game.");
+}
+        
     }
 
     private function loadPlayerData(): void {
