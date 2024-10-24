@@ -1,0 +1,22 @@
+name: PlayerAnalytics
+version: 1.0.0
+api: 5.0.0
+main: PlayerAnalytics\Main
+description: A plugin to track and display player analytics and server statistics.
+author: skyss0fly
+commands:
+  playerstats:
+    description: "Displays the statistics of a player."
+    usage: "/playerstats <playername>"
+    permission: PlayerAnalytics.pstats
+  serveranalytics:
+    description: "Displays server-wide analytics."
+    usage: "/serveranalytics"
+    permission: PlayerAnalytics.sstats
+permissions:
+  PlayerAnalytics.pstats:
+    description: "Get the statistics of the Players."
+    default: op
+  PlayerAnalytics.sstats:
+    description: "Get the statistics of the server."
+
