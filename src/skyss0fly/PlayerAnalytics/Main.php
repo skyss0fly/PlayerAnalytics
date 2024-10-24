@@ -131,25 +131,25 @@ class Main extends PluginBase implements Listener {
         });
 
         $form->setTitle("Player Statistics for $playerName");
-        $form->addLabel("Login Count: " . $stats['loginCount']);
-        $form->addLabel("Total Playtime: " . gmdate("H:i:s", $stats['totalPlayTime']));
-        $form->addLabel("Session Playtime: " . gmdate("H:i:s", $stats['sessionPlayTime']));
-        $form->addLabel("Messages Sent: " . $stats['messagesSent']);
-        $form->addLabel("Blocks Broken: " . $stats['blocksBroken']);
-        $form->addLabel("Items Consumed: " . $stats['itemsConsumed']);
+        $form->setContent("Login Count: " . $stats['loginCount']);
+        $form->setContent("Total Playtime: " . gmdate("H:i:s", $stats['totalPlayTime']));
+        $form->setContent("Session Playtime: " . gmdate("H:i:s", $stats['sessionPlayTime']));
+        $form->setContent("Messages Sent: " . $stats['messagesSent']);
+        $form->setContent("Blocks Broken: " . $stats['blocksBroken']);
+        $form->setContent("Items Consumed: " . $stats['itemsConsumed']);
 
         // Add playtime breakdown
         $dailyPlaytime = array_sum($stats['dailyPlaytime'] ?? []);
         $weeklyPlaytime = array_sum($stats['weeklyPlaytime'] ?? []);
         $monthlyPlaytime = array_sum($stats['monthlyPlaytime'] ?? []);
-        $form->addLabel("Daily Playtime: " . gmdate("H:i:s", $dailyPlaytime));
-        $form->addLabel("Weekly Playtime: " . gmdate("H:i:s", $weeklyPlaytime));
-        $form->addLabel("Monthly Playtime: " . gmdate("H:i:s", $monthlyPlaytime));
+        $form->setContent("Daily Playtime: " . gmdate("H:i:s", $dailyPlaytime));
+        $form->setContent("Weekly Playtime: " . gmdate("H:i:s", $weeklyPlaytime));
+        $form->setContent("Monthly Playtime: " . gmdate("H:i:s", $monthlyPlaytime));
 
         // Add recent activities
-        $form->addLabel("Recent Activities:");
+        $form->setContent("Recent Activities:");
         foreach ($stats['recentActivities'] as $activity) {
-            $form->addLabel("- $activity");
+            $form->setContent("- $activity");
         }
 
         $sender->sendForm($form);
@@ -161,9 +161,9 @@ class Main extends PluginBase implements Listener {
         });
 
         $form->setTitle("Server Analytics");
-        $form->addLabel("Total Players Online: " . $this->serverData['totalPlayers']);
-        $form->addLabel("Total Blocks Broken: " . $this->serverData['totalBlocksBroken']);
-        $form->addLabel("Total Items Consumed: " . $this->serverData['totalItemsConsumed']);
+        $form->setContent("Total Players Online: " . $this->serverData['totalPlayers']);
+        $form->setContent("Total Blocks Broken: " . $this->serverData['totalBlocksBroken']);
+        $form->setContent("Total Items Consumed: " . $this->serverData['totalItemsConsumed']);
 
         $sender->sendForm($form);
     }
