@@ -11,7 +11,7 @@ use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\player\PlayerItemConsumeEvent;
-use skyss0fly\PlayerAnalytics\form\{Form, SimpleForm};
+use use skyss0fly\PlayerAnalytics\form\{Form, SimpleForm};
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat as TF;
 
