@@ -1,7 +1,7 @@
 name: PlayerAnalytics
 version: 1.0.0
 api: 5.0.0
-main: PlayerAnalytics\Main
+main: skyss0fly\PlayerAnalytics\Main
 description: A plugin to track and display player analytics and server statistics.
 author: skyss0fly
 commands:
