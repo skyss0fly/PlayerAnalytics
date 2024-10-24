@@ -11,8 +11,7 @@ use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\player\PlayerItemConsumeEvent;
-use pocketmine\form\Form;
-use pocketmine\form\CustomForm;
+use skyss0fly\PlayerAnalytics\form\{Form, SimpleForm};
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat as TF;
 
@@ -127,7 +126,7 @@ class Main extends PluginBase implements Listener {
         }
 
         $stats = $this->playerData[$playerName];
-        $form = new CustomForm(function (CommandSender $sender, $data) {
+        $form = new SimpleForm(function (CommandSender $sender, $data) {
             // Form response handling can be implemented here
         });
 
@@ -157,7 +156,7 @@ class Main extends PluginBase implements Listener {
     }
 
     private function showServerAnalyticsForm(CommandSender $sender): void {
-        $form = new CustomForm(function (CommandSender $sender, $data) {
+        $form = new SimpleForm(function (CommandSender $sender, $data) {
             // Form response handling can be implemented here
         });
 
