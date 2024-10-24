@@ -14,6 +14,7 @@ use pocketmine\event\player\PlayerItemConsumeEvent;
 use skyss0fly\PlayerAnalytics\Form\{Form, SimpleForm};
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat as TF;
+use pocketmine\player\Player;
 
 class Main extends PluginBase implements Listener {
 
